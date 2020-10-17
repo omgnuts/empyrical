@@ -433,9 +433,9 @@ def get_symbol_returns_from_yahoo(symbol, start=None, end=None):
 
     try:
         px = web.get_data_yahoo(symbol, start=start, end=end)
-        px['date'] = pd.to_datetime(px['date'])
-        px.set_index('date', drop=False, inplace=True)
-        rets = px[['adjclose']].pct_change().dropna()
+        // px['date'] = pd.to_datetime(px['date'])
+        // px.set_index('date', drop=False, inplace=True)
+        rets = px[['Adj Close']].pct_change().dropna()
     except Exception as e:
         warnings.warn(
             'Yahoo Finance read failed: {}, falling back to Google'.format(e),
